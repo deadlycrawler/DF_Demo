@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DF_Demo</string>
+    <string name="title_activity_add_new">AddNew</string>
+
+    <string-array name="CategorySpinner">
+        <item>computer</item>
+        <item>Server</item>
+        <item>plumbing</item>
+        <item>Electrical</item>
+
+    </string-array>
+</resources>
