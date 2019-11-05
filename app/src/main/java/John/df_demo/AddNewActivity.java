@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import John.df_demo.DataBaseClasses.DbHelper;
 import John.df_demo.DataBaseClasses.DataContract.DataEntry;
+import John.df_demo.DataBaseClasses.DbHelper;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -38,6 +38,7 @@ public class AddNewActivity extends AppCompatActivity {
         CategorySpinner = (Spinner) findViewById(R.id.CategorySpinner);
 
 
+        //submitButton ActionListener
         Submit.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -46,24 +47,29 @@ public class AddNewActivity extends AppCompatActivity {
             }
         });
 
-
+        //CancelButton ActionListener
         Cancel.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
                 CancelFunction();
             }
         });
 
     }
 
+
+    //function call to return to Main
     private void CancelFunction() {
         Toast.makeText(AddNewActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
         ReturnToMainActivity();
     }
 
     //called on submit click
+
+    /**
+     * reads from all input fields, verifies inputs and submits them to the database
+     */
     private void SubmitFunction() {
 
         //retrieves values of the fields
@@ -73,41 +79,35 @@ public class AddNewActivity extends AppCompatActivity {
         CategorySpinnerValue = GetCagegoryValue();
 
 
-        //TODO: sanitize inputs
+        if (PartNumber.matches("")) {
+            Toast.makeText(this, getString(R.string.FieldRequired), Toast.LENGTH_LONG).show();
+            EditText PartNumberText = (EditText) findViewById(R.id.PartNumberText);
+            PartNumberText.setHint(getString(R.string.FieldRequired));
+
+            return;
+        }
+
 
         //input into database and return value of the new row added
-         long newRowId = insertToDataBase(PartNumber,StatusValue,CategorySpinnerValue);
-
+        long newRowId = insertToDataBase(PartNumber, StatusValue, CategorySpinnerValue);
 
         // Show a toast message depending on whether or not the insertion was successful
         if (newRowId == -1) {
             // If the row ID is -1, then there was an error with insertion.
-            Toast.makeText(this, "Invalid Entry", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.invalidEntry), Toast.LENGTH_SHORT).show();
         } else {
             // Otherwise, the insertion was successful and we can display a toast with the row ID.
-            Toast.makeText(this, "Item saved with row id: " + newRowId, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.ItemSaved) + newRowId, Toast.LENGTH_SHORT).show();
         }
 
-        //TODO: put ToastMessage inside a conditional function and only display after successful submission.
-        //TODO: remove this test text message
 
-        //Toast.makeText(AddNewActivity.this, StatusNotes, Toast.LENGTH_SHORT).show();
-
-//        if (StatusValue) {
-//            Toast.makeText(AddNewActivity.this, "true", Toast.LENGTH_SHORT).show();
-//        } else {
-//            Toast.makeText(AddNewActivity.this, "false", Toast.LENGTH_SHORT).show();
-//        }
-
-        //Final message todo: insert into conditional so only seen when actually submitted
-//        Toast.makeText(AddNewActivity.this, "Submitted", Toast.LENGTH_SHORT).show();
-
-        //return to main page
+        //return to MainActivity
         ReturnToMainActivity();
 
     }
 
     private String GetPartNumber() {
+
         EditText PartNumberText = (EditText) findViewById(R.id.PartNumberText);
         String value = PartNumberText.getText().toString().trim();
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DF_Demo</string>
+    <string name="Electrical">электрический</string>
+    <string name="FieldRequired">необходимый</string>
+    <string name="ItemSaved">Товар добавлен: </string>
+    <string name="Plumbing">водопровод</string>
+    <string name="Server">компьютер-сервер</string>
+    <string name="add_new_item">Добавить новый предмет</string>
+    <string name="cancel">Отмена</string>
+    <string name="category">категория</string>
+    <string name="computer">компьютер</string>
+    <string name="good">хороший</string>
+    <string name="invalidEntry">плохая запись</string>
+    <string name="notes">Примечания:</string>
+    <string name="part_number">номер части</string>
+    <string name="status">статус</string>
+    <string name="submit">представить</string>
+    <string name="title_activity_add_new">Добавить новое</string>
+    <string name="view_all_items">все</string>
+</resources>

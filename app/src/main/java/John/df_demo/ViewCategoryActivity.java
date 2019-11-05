@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+/**
+ * class currently unused, originally going to be a feature, commented out due to time constraints
+ */
 public class ViewCategoryActivity extends AppCompatActivity {
 
     @Override

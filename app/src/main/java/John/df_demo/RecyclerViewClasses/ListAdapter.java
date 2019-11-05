@@ -1,20 +1,13 @@
 package John.df_demo.RecyclerViewClasses;
 
 import android.app.Activity;
-import android.view.View;
-import android.widget.ArrayAdapter;
-
-import java.util.ArrayList;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import John.df_demo.R;
 
@@ -41,15 +34,14 @@ public class ListAdapter extends ArrayAdapter<List> {
         PartPrice.setText("# " + currentItem.getmPartNumber());
 
         TextView Category = (TextView) listItemView.findViewById(R.id.itemCatagoryTextViewListView);
-        Category.setText("Cat: " + currentItem.getmCatigory());
+
+
+        Category.setText(currentItem.getmCatigory());
 
         TextView Status = (TextView) listItemView.findViewById(R.id.statusTextViewListView);
-        Status.setText("status: " + currentItem.getmStatus());
-
-
-
-
+        Status.setText(currentItem.getmStatus());
 
         return listItemView;
     }
+
 }

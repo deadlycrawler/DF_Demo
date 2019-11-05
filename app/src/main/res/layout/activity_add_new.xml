@@ -21,7 +21,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Part Number"></TextView>
+                android:text="@string/part_number">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/PartNumberText"
@@ -29,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:textColorHint="#ff0000"
                 android:inputType="numberSigned" />
 
         </LinearLayout>
@@ -40,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Category">
+                android:text="@string/category">
 
             </TextView>
 
@@ -62,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status">
+                android:text="@string/status">
 
             </TextView>
 
@@ -70,7 +73,7 @@
                 android:id="@+id/StatusCheckbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Good">
+                android:text="@string/good">
 
             </CheckBox>
 
@@ -87,7 +90,7 @@
             android:layout_height="523dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Notes about status"
+            android:hint="@string/notes"
             android:inputType="textMultiLine" />
 
 
@@ -105,7 +108,7 @@
         android:id="@+id/CancelButton"
         android:layout_width="wrap_content"
         android:layout_height="64dp"
-        android:text="Cancel"
+        android:text="@string/cancel"
         app:layout_anchor="@+id/linearLayout"
         app:layout_anchorGravity="start|bottom" />
 
@@ -113,7 +116,7 @@
         android:id="@+id/SubmitButton"
         android:layout_width="312dp"
         android:layout_height="64dp"
-        android:text="Submit"
+        android:text="@string/submit"
         app:layout_anchor="@+id/linearLayout"
         app:layout_anchorGravity="end|bottom" />
 

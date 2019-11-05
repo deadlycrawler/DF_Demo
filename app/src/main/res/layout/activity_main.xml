@@ -15,7 +15,7 @@
         android:id="@+id/AddNewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add new item"
+        android:text="@string/add_new_item"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="112dp" />
 
@@ -23,16 +23,23 @@
         android:id="@+id/ViewAllButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View all items"
+        android:text="@string/view_all_items"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
 
-    <Button
-        android:id="@+id/ViewCategoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View Items by category"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="64dp" />
+<!--        incomplete feature commented out-->
+<!--    <Button-->
+<!--        android:id="@+id/ViewCategoryButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="View Items by category"-->
+<!--        tools:layout_editor_absoluteX="16dp"-->
+<!--        tools:layout_editor_absoluteY="64dp" />-->
+
+        <TextView
+            android:id="@+id/DataBaseSizeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

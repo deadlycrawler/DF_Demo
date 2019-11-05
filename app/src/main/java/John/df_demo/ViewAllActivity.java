@@ -4,17 +4,20 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import John.df_demo.DataBaseClasses.DbHelper;
 import John.df_demo.RecyclerViewClasses.List;
 import John.df_demo.RecyclerViewClasses.ListAdapter;
 import androidx.appcompat.app.AppCompatActivity;
 import John.df_demo.DataBaseClasses.DataContract.DataEntry;
 
+/**
+ * view all activity
+ */
+
 public class ViewAllActivity extends AppCompatActivity {
+
+    //Class Objects
     private DbHelper mDbHelper;
     final ArrayList<List> lists = new ArrayList<List>();
 
@@ -25,17 +28,6 @@ public class ViewAllActivity extends AppCompatActivity {
 
         mDbHelper = new DbHelper(this);
 
-
-
-//        String PartNumber = "2468";
-//        String Category = "computers";
-//        String status = "good";
-//        String notes = "17 is awesome";
-//
-//        //TODO: replace placeholders once database is in place
-//
-//        lists.add(new List(PartNumber, "plumbing", status, notes));
-//        lists.add(new List(PartNumber, Category, status, notes));
 
         ListAdapter adapter = new ListAdapter(this, lists);
         ListView listView = (ListView) findViewById(R.id.list);
@@ -49,7 +41,8 @@ public class ViewAllActivity extends AppCompatActivity {
         displayDatabaseInfo();
     }
 
-    private void displayDatabaseInfo() {
+
+    public void displayDatabaseInfo() {
         // Create and/or open a database to read from it
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
@@ -74,18 +67,9 @@ public class ViewAllActivity extends AppCompatActivity {
 //        TextView displayView = (TextView) findViewById(R.id.text_view_pet);
 
         try {
-            // Create a header in the Text View that looks like this:
-            //
-            // The pets table contains <number of rows in Cursor> pets.
-            // _id - name - breed - gender - weight
-            //
-            // In the while loop below, iterate through the rows of the cursor and display
-            // the information from each column in this order.
-//            displayView.setText("The table contains " + cursor.getCount() + " Items.\n\n");
-//            displayView.append(DataEntry._ID + " - " +
-//                    DataEntry.COLUMN_PART_NUMBER + " - " +
-//                    DataEntry.COLUMN_CATEGORY + " - " +
-//                    DataEntry.COLUMN_PART_STATUS + " - " +"\n");
+            // In the while loop below, iterate through the rows of the cursor and
+//            put the information into a ListItem to display
+//
 
             // Figure out the index of each column
             int idColumnIndex = cursor.getColumnIndex(DataEntry._ID);
@@ -97,18 +81,20 @@ public class ViewAllActivity extends AppCompatActivity {
             while (cursor.moveToNext()) {
                 // Use that index to extract the String or Int value of the word
                 // at the current row the cursor is on.
+
+                //currently unused but can be used to track or order items,
                 int currentID = cursor.getInt(idColumnIndex);
+
                 String PartNumber = cursor.getString(PartNumberIndex);
                 String Category = cursor.getString(CategoryIndex);
                 String status = cursor.getString(Part_status);
                 String notes = "notes place holder text";
 
-
-
+                //add items to the list view
                 lists.add(new List(PartNumber, Category, status, notes));
             }
         } finally {
-            // Always close the cursor when you're done reading from it. This releases all its
+            // close the cursor when you're done reading with it. This releases all its
             // resources and makes it invalid.
             cursor.close();
         }

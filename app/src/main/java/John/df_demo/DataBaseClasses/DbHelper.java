@@ -21,7 +21,6 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
-    //todo: fix the inputs
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 

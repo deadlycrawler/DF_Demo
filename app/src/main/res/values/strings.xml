@@ -1,12 +1,28 @@
 <resources>
     <string name="app_name">DF_Demo</string>
     <string name="title_activity_add_new">AddNew</string>
+    <string name="category">category: </string>
+    <string name="FieldRequired">Part Number Required</string>
+    <string name="invalidEntry">Invalid Entry</string>
+    <string name="ItemSaved">Item saved with row id: </string>
+    <string name="add_new_item">Add new item</string>
+    <string name="view_all_items">View all items</string>
+    <string name="part_number">Part Number</string>
+    <string name="status">Status</string>
+    <string name="good">Good</string>
+    <string name="notes">Notes:</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="computer">computer</string>
+    <string name="Server">Server</string>
+    <string name="Plumbing">Plumbing</string>
+    <string name="Electrical">Electrical</string>
 
     <string-array name="CategorySpinner">
-        <item>computer</item>
-        <item>Server</item>
-        <item>plumbing</item>
-        <item>Electrical</item>
+        <item>@string/computer</item>
+        <item>@string/Server</item>
+        <item>@string/Plumbing</item>
+        <item>@string/Electrical</item>
 
     </string-array>
 </resources>
