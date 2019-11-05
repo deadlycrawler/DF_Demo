@@ -9,7 +9,7 @@ public class List {
     private String mNotes;
 
 
-    //constructor
+    //Constructor
     public List(String partNumber, String category, String status, String notes) {
         mPartNumber = partNumber;
         mCategory = category;
