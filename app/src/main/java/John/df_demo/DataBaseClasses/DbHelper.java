@@ -7,6 +7,7 @@ import John.df_demo.DataBaseClasses.DataContract.DataEntry;
 
 public class DbHelper extends SQLiteOpenHelper {
 
+    //log tag is used for trouble shooting DB entries, since this was simple i never needed it, kept in case DB expands
     public static final String LOG_TAG = DbHelper.class.getSimpleName();
 
     // Name of the database file
@@ -25,16 +26,15 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
 
-        // Create a String that contains the SQL statement to create the pets table
+        // Create a String that contains the SQL statement to create the table
         String SQL_CREATE_DATA_ITEMS_TABLE =  "CREATE TABLE " + DataEntry.TABLE_NAME + " ("
                 + DataEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DataEntry.COLUMN_PART_NUMBER + " TEXT, "
                 + DataEntry.COLUMN_CATEGORY + " TEXT, "
                 + DataEntry.COLUMN_PART_STATUS + " TEXT);";
 
-        // Execute the SQL statement
+        // Execute the SQL statement, this creates the database
         sqLiteDatabase.execSQL(SQL_CREATE_DATA_ITEMS_TABLE);
-
     }
 
     //onUpgrade is called when the database needs to be updated
